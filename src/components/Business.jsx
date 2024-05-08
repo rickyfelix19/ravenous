@@ -21,9 +21,9 @@ function Business() {
 		reviewCount: 90,
 	};
 	return (
-		<Card sx={{ maxWidth: 345 }}>
+		<Card sx={{ maxWidth: 300 }}>
 			<CardMedia
-				sx={{ height: 300 }}
+				sx={{ height: 200 }}
 				image={business.imageSrc}
 				title={business.name}
 			/>
@@ -41,7 +41,9 @@ function Business() {
 					</Grid>
 					<Grid item xs={6} md={8}>
 						<Typography variant="body2" color="text.secondary">
+							{/* change this to yellow and bigger font */}
 							{business.category} <br />
+							{/* change this to yellow */}
 							{business.rating} stars
 							<br />
 							{business.reviewCount} reviews
