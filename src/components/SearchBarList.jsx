@@ -1,12 +1,12 @@
+import SearchBar from "./SearchBar";
 import React from "react";
-import Business from "./Business";
 
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 
-function BusinessList() {
+function SearchBarList() {
 	return (
-		<>
+		<div>
 			<div style={{ width: "100%" }}>
 				<Box
 					sx={{
@@ -17,16 +17,14 @@ function BusinessList() {
 						justifyContent: "space-evenly",
 					}}
 				>
-					<Business />
-					<Business />
-					<Business />
-					<Business />
-					<Business />
-					<Business />
-				</Box>
+					<SearchBar />
+					<SearchBar />
+                </Box>
+                
 			</div>
-		</>
+			;
+		</div>
 	);
 }
 
-export default BusinessList;
+export default SearchBarList;
