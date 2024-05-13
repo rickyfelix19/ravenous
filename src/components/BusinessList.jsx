@@ -18,11 +18,11 @@ function BusinessList() {
 					}}
 				>
 					<Business />
+					{/* <Business />
 					<Business />
 					<Business />
 					<Business />
-					<Business />
-					<Business />
+					<Business /> */}
 				</Box>
 			</div>
 		</>

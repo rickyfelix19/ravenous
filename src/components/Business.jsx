@@ -1,4 +1,6 @@
 import React from "react";
+import businessJSON from "./businessJSON.json";
+
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -20,6 +22,7 @@ function Business() {
 		rating: 4.5,
 		reviewCount: 90,
 	};
+
 	return (
 		<Card sx={{ maxWidth: 300 }}>
 			<CardMedia
