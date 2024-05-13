@@ -10,17 +10,19 @@ function App() {
 		<div>
 			<h1
 				style={{
-					backgroundColor: "#222",
-					color: "#1976d2",
+					backgroundColor: "#c39948",
+					color: "#ffffff",
 					margin: "auto",
 					padding: "20px",
 					textAlign: "center",
 				}}
 			>
-				Ravenous
+				ravenous
 			</h1>
-			<SearchBar />
-			<BusinessList />
+			<div style={{ backgroundColor: "#e4e4e4" }}>
+				<SearchBar />
+				<BusinessList />
+			</div>
 		</div>
 	);
 }

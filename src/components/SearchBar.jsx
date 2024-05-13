@@ -14,8 +14,8 @@ export default function BasicTextFields() {
 	return (
 		<div
 			style={{
+				background: "#2f2f2f",
 				// backgroundImage: `url('https://s3.us-west-1.amazonaws.com/wakegov.com.if-us-west-1/s3fs-public/styles/max_1300x1300/public/images/2024-03/home_based_food.jpeg?itok=2j0OV3F0)`,
-				background: "#222",
 				opacity: 0.8,
 			}}
 		>
