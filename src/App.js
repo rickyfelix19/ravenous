@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import BusinessList from "./components/BusinessList";
 import SearchBar from "./components/SearchBar";
+import { businessData } from "./components/businessData";
 
 import Box from "@mui/material/Box";
 
@@ -21,7 +22,7 @@ function App() {
 			</h1>
 			<div style={{ backgroundColor: "#e4e4e4" }}>
 				<SearchBar />
-				<BusinessList />
+				<BusinessList list={businessData} />
 			</div>
 		</div>
 	);

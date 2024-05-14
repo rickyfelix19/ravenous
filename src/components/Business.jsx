@@ -1,5 +1,5 @@
 import React from "react";
-import businessJSON from "./businessJSON.json";
+import { businessData } from "./businessData";
 
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -9,47 +9,47 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 
-function Business() {
-	let business = {
-		imageSrc:
-			"https://content.codecademy.com/programs/react/ravenous/pizza.jpg",
-		name: "MarginOtto Pizzeria",
-		address: "1010 Paddington Way",
-		city: "Flavortown",
-		state: "NY",
-		zipCode: "10101",
-		category: "Italian",
-		rating: 4.5,
-		reviewCount: 90,
-	};
+function Business(props) {
+	// let business = {
+	// 	imageSrc:
+	// 		"https://content.codecademy.com/programs/react/ravenous/pizza.jpg",
+	// 	name: "MarginOtto Pizzeria",
+	// 	address: "1010 Paddington Way",
+	// 	city: "Flavortown",
+	// 	state: "NY",
+	// 	zipCode: "10101",
+	// 	category: "Italian",
+	// 	rating: 4.5,
+	// 	reviewCount: 90,
+	// };
 
 	return (
 		<Card sx={{ maxWidth: 300 }}>
 			<CardMedia
 				sx={{ height: 200 }}
-				image={business.imageSrc}
-				title={business.name}
+				image={props.info.imageSrc}
+				title={props.info.name}
 			/>
 			<CardContent>
 				<Typography gutterBottom variant="h5" component="div">
-					{business.name}
+					{props.info.name}
 				</Typography>
 				<Grid container spacing={2}>
 					<Grid item xs={6} md={8}>
 						<Typography variant="body2" color="text.secondary">
-							{business.address} <br />
-							{business.city} <br />
-							{business.state} {business.zipCode}
+							{props.info.address} <br />
+							{props.info.city} <br />
+							{props.info.state} {props.info.zipCode}
 						</Typography>
 					</Grid>
 					<Grid item xs={6} md={8}>
 						<Typography variant="body2" color="text.secondary">
 							{/* change this to yellow and bigger font */}
-							{business.category} <br />
+							{props.info.category} <br />
 							{/* change this to yellow */}
-							{business.rating} stars
+							{props.info.rating} stars
 							<br />
-							{business.reviewCount} reviews
+							{props.info.reviewCount} reviews
 						</Typography>
 					</Grid>
 				</Grid>

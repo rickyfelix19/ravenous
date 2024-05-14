@@ -4,7 +4,7 @@ import Business from "./Business";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 
-function BusinessList() {
+function BusinessList(props) {
 	return (
 		<>
 			<div style={{ width: "100%" }}>
@@ -17,8 +17,11 @@ function BusinessList() {
 						justifyContent: "space-evenly",
 					}}
 				>
+					{props.list.map((business) => {
+						return <Business key={business.id} info={business} />;
+					})}
+					{/* <Business /> 
 					<Business />
-					{/* <Business />
 					<Business />
 					<Business />
 					<Business />
