@@ -1,4 +1,6 @@
 import * as React from "react";
+import { useState, useEffect } from "react";
+
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -6,19 +8,29 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 
 export default function BasicTextFields() {
-	const [value, setValue] = React.useState("one");
+	const sortChoices = [
+		{ id: "best_match", choice: "Best Match" },
+		{ id: "rating", choice: "Highest Rated" },
+		{ id: "review_count", choice: "Most Reviewed" },
+	];
 
-	const handleChange = (event, newValue) => {
-		setValue(newValue);
+	const [tabValue, setTabValue] = useState(""); // default value for tab
+
+	const handleChange = (event, newTabValue) => {
+		setTabValue(newTabValue);
 	};
+
+	const [searchBusiness, setSearchBusiness] = useState("");
+	const [searchLocation, setSearchLocation] = useState("");
+
 	return (
 		<div
 			style={{
 				// background: "#2f2f2f",
 				// background: "rgba(0, 0, 0, 0.2)",
-				opacity: 0.8,
+				opacity: 0.95,
 				backgroundImage: `url('https://s3.us-west-1.amazonaws.com/wakegov.com.if-us-west-1/s3fs-public/styles/max_1300x1300/public/images/2024-03/home_based_food.jpeg?itok=2j0OV3F0)`,
-				color: "#ffffff",
+				// color: "#e1e1fcfff",
 				// filter: "brightness(80%)",
 			}}
 		>
@@ -33,19 +45,21 @@ export default function BasicTextFields() {
 					display="flex"
 					justifyContent="center"
 					alignItems="center"
-					sx={{ p: 3, m: 3 }}
+					sx={{ p: 1, m: 1 }}
 				>
 					<Tabs
-						value={value}
+						value={tabValue}
 						onChange={handleChange}
 						centered
 						textColor="primary"
 						indicatorColor="primary"
 						aria-label="primary tabs example"
+						width="100%"
+						sx={{ bgcolor: "rgb(225,225,252,0.8)", borderRadius: "5px" }}
 					>
-						<Tab value="one" label="Best Match" />
-						<Tab value="two" label="Highest Rated" />
-						<Tab value="three" label="Most Reviewed" />
+						<Tab tabValue="one" label="Best Match" />
+						<Tab tabValue="two" label="Highest Rated" />
+						<Tab tabValue="three" label="Most Reviewed" />
 					</Tabs>
 				</Box>
 
@@ -57,13 +71,13 @@ export default function BasicTextFields() {
 						p: 1,
 						m: 1,
 						justifyContent: "space-evenly",
-						maxWidth: "100%",
+						width: "100%",
 					}}
 					noValidate
 					autoComplete="off"
 				>
 					<TextField
-						sx={{ input: { color: "white" } }}
+						sx={{ bgcolor: "rgb(225,225,252,0.8)", borderRadius: "5px" }}
 						id="filled"
 						label="Search Businesses"
 						variant="filled"
@@ -71,7 +85,7 @@ export default function BasicTextFields() {
 						color="primary"
 					/>
 					<TextField
-						sx={{ input: { color: "white" } }}
+						sx={{ bgcolor: "rgb(225,225,252,0.8)", borderRadius: "5px" }}
 						id="filled"
 						label="Where?"
 						variant="filled"

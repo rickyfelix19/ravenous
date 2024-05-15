@@ -23,7 +23,7 @@ function Business(props) {
 	// };
 
 	return (
-		<Card sx={{ maxWidth: 300 }}>
+		<Card sx={{ maxWidth: 320, width: 300 }}>
 			<CardMedia
 				sx={{ height: 200 }}
 				image={props.info.imageSrc}
@@ -39,9 +39,10 @@ function Business(props) {
 							{props.info.address} <br />
 							{props.info.city} <br />
 							{props.info.state} {props.info.zipCode}
+							<br />
 						</Typography>
 					</Grid>
-					<Grid item xs={6} md={8}>
+					<Grid item xs={6} md={4}>
 						<Typography variant="body2" color="text.secondary">
 							{/* change this to yellow and bigger font */}
 							{props.info.category} <br />
