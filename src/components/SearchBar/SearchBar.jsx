@@ -8,44 +8,70 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 
 export default function BasicTextFields() {
+	//*** DO NOT TOUCH - for MUI */
+	const [tabValue, setTabValue] = useState(0); // default value for tab: 0,1,2,...,N
+
+	const handleChange = (event, newTabValue) => {
+		setTabValue(newTabValue);
+	};
+	//*** DO NOT TOUCH - for MUI */
+
+	const [tabFilter, setTabFiler] = useState("");
+	const [searchBusiness, setSearchBusiness] = useState("");
+	const [searchLocation, setSearchLocation] = useState("");
+
+	const searchFilters = (filter) => {
+		setTabFiler(filter);
+	};
+
+	const searchBusinesses = (search) => {
+		setSearchBusiness(search);
+	};
+
+	const searchLocations = (location) => {
+		setSearchLocation(location);
+	};
+
+	const searchFunction = () => {
+		// Searching Yelp with Pizza, Brooklyn, best_match
+		// `Searching Yelp with ${searchBusiness}, ${searchLocation}, ${tabValue}`}
+		console.log(
+			`Searching Yelp with ${searchBusiness}, ${searchLocation}, ${tabFilter}`
+		);
+	};
+
 	const sortChoices = [
 		{ id: "best_match", choice: "Best Match" },
 		{ id: "rating", choice: "Highest Rated" },
 		{ id: "review_count", choice: "Most Reviewed" },
 	];
 
-	const [tabValue, setTabValue] = useState(""); // default value for tab
-
-	const handleChange = (event, newTabValue) => {
-		setTabValue(newTabValue);
-	};
-
-	const [searchBusiness, setSearchBusiness] = useState("");
-	const [searchLocation, setSearchLocation] = useState("");
-
 	return (
 		<div
-			style={{
-				// background: "#2f2f2f",
-				// background: "rgba(0, 0, 0, 0.2)",
-				opacity: 0.95,
-				backgroundImage: `url('https://s3.us-west-1.amazonaws.com/wakegov.com.if-us-west-1/s3fs-public/styles/max_1300x1300/public/images/2024-03/home_based_food.jpeg?itok=2j0OV3F0)`,
-				// color: "#e1e1fcfff",
-				// filter: "brightness(80%)",
-			}}
+		// // style={{
+		// // style={{
+		// 	// background: "#2f2f2f",
+		// 	// background: "rgba(0, 0, 0, 0.2)",
+		// 	// color: "#e1e1fcfff",
+		// 	// filter: "brightness(80%)",
+		// // 	opacity: 0.95,
+		// // 	backgroundImage: `url('https://s3.us-west-1.amazonaws.com/wakegov.com.if-us-west-1/s3fs-public/styles/max_1300x1300/public/images/2024-03/home_based_food.jpeg?itok=2j0OV3F0)`,
+		// // }}
 		>
 			<div
 				style={{
 					width: "100%",
 					margin: "1px",
 					padding: "1px",
+					opacity: 0.95,
+					backgroundImage: `url('https://s3.us-west-1.amazonaws.com/wakegov.com.if-us-west-1/s3fs-public/styles/max_1300x1300/public/images/2024-03/home_based_food.jpeg?itok=2j0OV3F0)`,
 				}}
 			>
 				<Box
 					display="flex"
 					justifyContent="center"
 					alignItems="center"
-					sx={{ p: 1, m: 1 }}
+					sx={{ p: 1, m: 10 }}
 				>
 					<Tabs
 						value={tabValue}
@@ -57,9 +83,24 @@ export default function BasicTextFields() {
 						width="100%"
 						sx={{ bgcolor: "rgb(225,225,252,0.8)", borderRadius: "5px" }}
 					>
-						<Tab tabValue="one" label="Best Match" />
-						<Tab tabValue="two" label="Highest Rated" />
-						<Tab tabValue="three" label="Most Reviewed" />
+						<Tab
+							tabValue="one" //for MUI
+							id={sortChoices[0].id}
+							label={sortChoices[0].choice}
+							onClick={tabFilter}
+						/>
+						<Tab
+							tabValue="two" //for MUI
+							id={sortChoices[1].id}
+							label={sortChoices[1].choice}
+							onClick={tabFilter}
+						/>
+						<Tab
+							tabValue="three" //for MUI
+							id={sortChoices[2].id}
+							label={sortChoices[2].choice}
+							onClick={tabFilter}
+						/>
 					</Tabs>
 				</Box>
 
@@ -83,6 +124,7 @@ export default function BasicTextFields() {
 						variant="filled"
 						focused
 						color="primary"
+						onChange={searchBusiness}
 					/>
 					<TextField
 						sx={{ bgcolor: "rgb(225,225,252,0.8)", borderRadius: "5px" }}
@@ -91,6 +133,7 @@ export default function BasicTextFields() {
 						variant="filled"
 						focused
 						color="primary"
+						onChange={searchLocation}
 					/>
 				</Box>
 				<Box
@@ -99,9 +142,13 @@ export default function BasicTextFields() {
 					alignItems="center"
 					sx={{ p: 5, m: 5 }}
 				>
-					<Button variant="contained">Let's Go</Button>
+					<Button variant="contained" onClick={searchFunction}>
+						Let's Go
+					</Button>
 				</Box>
 			</div>
 		</div>
 	);
 }
+
+// Searching Yelp with {Pizza}, {Brooklyn}, {best_match}
