@@ -1,5 +1,4 @@
 import React from "react";
-import { businessData } from "./businessData";
 
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
