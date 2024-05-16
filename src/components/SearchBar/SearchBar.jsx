@@ -84,19 +84,19 @@ export default function BasicTextFields() {
 							tabValue="one" //for MUI
 							id={sortChoices[0].id}
 							label={sortChoices[0].choice}
-							onClick={() => setTabFilter(sortChoices[0].choice)}
+							onClick={() => setTabFilter(sortChoices[0].id)}
 						/>
 						<Tab
 							tabValue="two" //for MUI
 							id={sortChoices[1].id}
 							label={sortChoices[1].choice}
-							onClick={() => setTabFilter(sortChoices[1].choice)}
+							onClick={() => setTabFilter(sortChoices[1].id)}
 						/>
 						<Tab
 							tabValue="three" //for MUI
 							id={sortChoices[2].id}
 							label={sortChoices[2].choice}
-							onClick={() => setTabFilter(sortChoices[2].choice)}
+							onClick={() => setTabFilter(sortChoices[2].id)}
 						/>
 					</Tabs>
 				</Box>
