@@ -16,29 +16,32 @@ export default function BasicTextFields() {
 	};
 	//*** DO NOT TOUCH - for MUI */
 
-	const [tabFilter, setTabFiler] = useState("");
+	const [tabFilter, setTabFilter] = useState("");
 	const [searchBusiness, setSearchBusiness] = useState("");
 	const [searchLocation, setSearchLocation] = useState("");
 
 	const searchFilters = (filter) => {
-		setTabFiler(filter);
+		return setTabFilter(filter);
 	};
 
 	const searchBusinesses = (search) => {
-		setSearchBusiness(search);
+		return setSearchBusiness(search);
 	};
 
 	const searchLocations = (location) => {
-		setSearchLocation(location);
+		return setSearchLocation(location);
 	};
 
-	const searchFunction = () => {
-		// Searching Yelp with Pizza, Brooklyn, best_match
-		// `Searching Yelp with ${searchBusiness}, ${searchLocation}, ${tabValue}`}
+	const searchFunction = () =>
 		console.log(
+			// Searching Yelp with Pizza, Brooklyn, best_match
+			// `Searching Yelp with ${searchBusiness}, ${searchLocation}, ${tabValue}`}
 			`Searching Yelp with ${searchBusiness}, ${searchLocation}, ${tabFilter}`
 		);
-	};
+
+	useEffect(() => {
+		return searchFunction();
+	});
 
 	const sortChoices = [
 		{ id: "best_match", choice: "Best Match" },
@@ -87,19 +90,19 @@ export default function BasicTextFields() {
 							tabValue="one" //for MUI
 							id={sortChoices[0].id}
 							label={sortChoices[0].choice}
-							onClick={tabFilter}
+							onClick={() => setTabFilter(sortChoices[0].choice)}
 						/>
 						<Tab
 							tabValue="two" //for MUI
 							id={sortChoices[1].id}
 							label={sortChoices[1].choice}
-							onClick={tabFilter}
+							onClick={() => setTabFilter(sortChoices[1].choice)}
 						/>
 						<Tab
 							tabValue="three" //for MUI
 							id={sortChoices[2].id}
 							label={sortChoices[2].choice}
-							onClick={tabFilter}
+							onClick={() => setTabFilter(sortChoices[2].choice)}
 						/>
 					</Tabs>
 				</Box>
@@ -124,7 +127,7 @@ export default function BasicTextFields() {
 						variant="filled"
 						focused
 						color="primary"
-						onChange={searchBusiness}
+						onChange={setSearchBusiness}
 					/>
 					<TextField
 						sx={{ bgcolor: "rgb(225,225,252,0.8)", borderRadius: "5px" }}
@@ -133,7 +136,7 @@ export default function BasicTextFields() {
 						variant="filled"
 						focused
 						color="primary"
-						onChange={searchLocation}
+						onChange={setSearchLocation}
 					/>
 				</Box>
 				<Box
