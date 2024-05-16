@@ -20,18 +20,6 @@ export default function BasicTextFields() {
 	const [searchBusiness, setSearchBusiness] = useState("");
 	const [searchLocation, setSearchLocation] = useState("");
 
-	const searchFilters = (filter) => {
-		return setTabFilter(filter);
-	};
-
-	const searchBusinesses = (search) => {
-		return setSearchBusiness(search);
-	};
-
-	const searchLocations = (location) => {
-		return setSearchLocation(location);
-	};
-
 	const searchFunction = () =>
 		console.log(
 			// Searching Yelp with Pizza, Brooklyn, best_match
@@ -39,9 +27,15 @@ export default function BasicTextFields() {
 			`Searching Yelp with ${searchBusiness}, ${searchLocation}, ${tabFilter}`
 		);
 
-	useEffect(() => {
-		return searchFunction();
-	});
+	const searchForBusiness = (e) => {
+		// console.log("testing" + e.target.value);
+		setSearchBusiness(e.target.value);
+	};
+
+	const searchForLocation = (e) => {
+		// console.log("testing" + e.target.value);
+		setSearchLocation(e.target.value);
+	};
 
 	const sortChoices = [
 		{ id: "best_match", choice: "Best Match" },
@@ -127,7 +121,7 @@ export default function BasicTextFields() {
 						variant="filled"
 						focused
 						color="primary"
-						onChange={setSearchBusiness}
+						onBlur={searchForBusiness}
 					/>
 					<TextField
 						sx={{ bgcolor: "rgb(225,225,252,0.8)", borderRadius: "5px" }}
@@ -136,7 +130,7 @@ export default function BasicTextFields() {
 						variant="filled"
 						focused
 						color="primary"
-						onChange={setSearchLocation}
+						onBlur={searchForLocation}
 					/>
 				</Box>
 				<Box
